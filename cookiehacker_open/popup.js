@@ -16,7 +16,6 @@ function inj_cookies(cookies) {
     }
 
     d = new Date();
-    ;
     expired = 365 * 70; // 70years
     //d.setTime(d.getTime()+expired*24*3600*1000); //millisecond
     //e = d.toGMTString();
@@ -44,7 +43,6 @@ function inj_cookies(cookies) {
             'expirationDate': e,
         });
     }
-    ;
     $('status').innerHTML = 'OK.';
 
 }
