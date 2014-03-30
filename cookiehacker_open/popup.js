@@ -18,10 +18,7 @@ function inj_cookies(cookies) {
 
     var expirationDate = new Date().setTime(new Date().getTime() / 1000 + SEVENTY_YEARS * 24 * 3600); //second
 
-    domain = URL.split('/')[2];
-    if ($('domain').value != domain) {
-        domain = $('domain').value;
-    }
+    var domain = $('domain').value;
     url = URL.split('/')[0] + '//' + domain;
 
     cc = cookies.split(';');
