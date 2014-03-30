@@ -1,13 +1,21 @@
-body{
-	background-color: #333;
-	color: #ccc;
-	width: 500px;
-	margin: 5px;
-	padding: 0;
-	overflow: hidden;
+body {
+    background-color: #333;
+    color: #ccc;
+    width: 500px;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
 }
-textarea{padding:0;margin:0;}
-.help{
-	font-size:12px;
+
+textarea {
+    padding: 0;
+    margin: 0;
 }
-#status{color:red;}
+
+.help {
+    font-size: 12px;
+}
+
+#status {
+    color: red;
+}
