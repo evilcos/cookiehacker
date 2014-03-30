@@ -7,6 +7,14 @@ function $(id) {
     return document.getElementById(id);
 }
 
+function getProtocol() {
+    return URL.split('/')[0];
+}
+
+function getDomain() {
+    return URL.split('/')[2];
+}
+
 function inj_cookies(cookies) {
     if (!cookies) {
         $('status').innerHTML = 'No Cookies Injected.';
@@ -19,20 +27,20 @@ function inj_cookies(cookies) {
     var expirationDate = new Date().setTime(new Date().getTime() / 1000 + SEVENTY_YEARS * 24 * 3600); //second
 
     var domain = $('domain').value;
-    url = URL.split('/')[0] + '//' + domain;
+    var url = getProtocol() + '//' + domain;
 
-    cc = cookies.split(';');
+    var cc = cookies.split(';');
     for (i in cc) {
-        c = cc[i].replace(/^\s+|\s+$/g, "");
+        var c = cc[i].replace(/^\s+|\s+$/g, "");
         if (!c) continue;
-        k = c.split('=')[0].replace(/^\s+|\s+$/g, "").replace(' ', '+');
-        v = c.split('=')[1].replace(/^\s+|\s+$/g, "").replace(' ', '+');
+        var name = c.split('=')[0].replace(/^\s+|\s+$/g, "").replace(' ', '+');
+        var value = c.split('=')[1].replace(/^\s+|\s+$/g, "").replace(' ', '+');
         chrome.cookies.set({
             'url': url,
-            'name': k,
-            'value': v,
+            'name': name,
+            'value': value,
             'path': '/',
-            'domain': $('domain').value,
+            'domain': domain,
             'expirationDate': expirationDate
         });
     }
@@ -50,7 +58,7 @@ function init() {
      */
     chrome.tabs.getSelected(null, function (tab) {
         URL = tab.url;
-        $('domain').value = URL.split('/')[2];
+        $('domain').value = getDomain();
     });
     /*
      chrome.cookies.getAll({}, function(cookies) {
