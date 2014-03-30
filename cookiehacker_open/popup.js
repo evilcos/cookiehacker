@@ -1,5 +1,6 @@
 // by evilcos@gmail.com
 
+const SEVENTY_YEARS = 365 * 70;
 var URL = '';
 
 function $(id) {
@@ -16,7 +17,7 @@ function inj_cookies(cookies) {
     }
 
     d = new Date();
-    expired = 365 * 70; // 70years
+    expired = SEVENTY_YEARS; // 70years
     //d.setTime(d.getTime()+expired*24*3600*1000); //millisecond
     //e = d.toGMTString();
     e = d.setTime(d.getTime() / 1000 + expired * 24 * 3600); //second
