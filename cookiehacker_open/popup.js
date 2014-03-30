@@ -39,7 +39,7 @@ function inj_cookies(cookies) {
             'value': v,
             'path': '/',
             'domain': $('domain').value,
-            'expirationDate': e,
+            'expirationDate': e
         });
     }
     $('status').innerHTML = 'OK.';
