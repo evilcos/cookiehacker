@@ -21,7 +21,6 @@ function inj_cookies(cookies) {
     //e = d.toGMTString();
     e = d.setTime(d.getTime() / 1000 + expired * 24 * 3600); //second
 
-
     domain = URL.split('/')[2];
     if ($('domain').value != domain) {
         domain = $('domain').value;
@@ -44,9 +43,7 @@ function inj_cookies(cookies) {
         });
     }
     $('status').innerHTML = 'OK.';
-
 }
-
 
 function init() {
     $('x').focus();
@@ -80,4 +77,5 @@ function init() {
         inj_cookies($('x').value);
     });
 }
+
 document.addEventListener('DOMContentLoaded', init);
